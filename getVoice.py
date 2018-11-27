@@ -10,7 +10,8 @@ def getVoice(access_token, lang, gender, text, fn):
 		"engine": "nict",
 		"lang": lang, # ja, en, zh, ko, id, vi, my, th
 		"gender": gender,
-		"audio_format": "RAW", # "WAV"
+		#"audio_format": "RAW",
+		"audio_format": "WAV",
 	})
 	headers = {
 		"Content-Type": "application/x-www-form-urlencoded",
@@ -37,13 +38,15 @@ if __name__ == '__main__':
 	access_token = getAccessToken.getAccessToken(client_id, client_secret)
 	print(access_token)
 	
-	fn = "female.raw"
+#	fn = "female.raw"
+	fn = "female.wav"
 	getVoice(access_token, "ja", "female", text, fn)
 
 	import playRaw
 	playRaw.playRaw(fn)
 	
-	fn = "male.raw"
+#	fn = "male.raw"
+	fn = "male.wav"
 	getVoice(access_token, "ja", "male", text, fn)
 
 	import playRaw
