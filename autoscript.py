@@ -23,9 +23,13 @@ if __name__ == '__main__':
 			dst = row[2]
 			text = row[3]
 			
-			from translate import translate
-			text2 = translate(access_token, src, dst, text)
-			print("time " + str(dt) + "sec : " + text + " -> " + text2)
+			if src != dst:
+				from translate import translate
+				text2 = translate(access_token, src, dst, text)
+				print("time " + str(dt) + "sec : " + text + " -> " + text2)
+			else:
+				print("time " + str(dt) + "sec : " + text)
+				text2 = text
 			
 			from time import sleep
 			while 1:
